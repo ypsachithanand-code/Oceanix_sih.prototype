@@ -1,0 +1,73 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  darkMode: "class",
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        "surface": "#001526",
+        "surface-dim": "#001526",
+        "surface-bright": "#263b4f",
+        "surface-container-lowest": "#000f1e",
+        "surface-container-low": "#051d30",
+        "surface-container": "#092134",
+        "surface-container-high": "#162c3f",
+        "surface-container-highest": "#21374b",
+        "on-surface": "#cfe5ff",
+        "on-surface-variant": "#c2c7ce",
+        "inverse-surface": "#cfe5ff",
+        "inverse-on-surface": "#1d3246",
+        "outline": "#8c9198",
+        "outline-variant": "#42474d",
+        "surface-tint": "#a4cbec",
+        "primary": "#a4cbec",
+        "on-primary": "#02344e",
+        "primary-container": "#0b3954",
+        "on-primary-container": "#7da3c2",
+        "inverse-primary": "#3c627f",
+        "secondary": "#78d1ff",
+        "on-secondary": "#003549",
+        "secondary-container": "#2d9bc9",
+        "on-secondary-container": "#002d3f",
+        "tertiary": "#50d6f9",
+        "on-tertiary": "#003642",
+        "tertiary-container": "#003b48",
+        "on-tertiary-container": "#00adce",
+        "error": "#ffb4ab",
+        "on-error": "#690005",
+        "error-container": "#93000a",
+        "on-error-container": "#ffdad6",
+        "background": "#001526",
+        "on-background": "#cfe5ff",
+        "surface-variant": "#21374b",
+        "surface-glass": "rgba(8, 28, 45, 0.88)",
+        "border-glass": "rgba(150, 220, 255, 0.10)",
+        "text-primary": "#FFFFFF",
+        "text-secondary": "#D6E7F3",
+        "text-muted": "#9BB7C9",
+        "bg-gradient-top": "#4D94C6",
+        "bg-gradient-bottom": "#031B2E"
+      },
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],
+        mono: ["IBM Plex Mono", "monospace"],
+      },
+      borderRadius: {
+        "sm": "0.25rem",
+        "DEFAULT": "0.5rem",
+        "md": "0.75rem",
+        "lg": "1rem",
+        "xl": "1.5rem",
+        "pill": "9999px"
+      },
+      boxShadow: {
+        "glass": "0 8px 32px 0 rgba(0, 0, 0, 0.37)",
+        "cyan-glow": "0 0 20px rgba(80, 214, 249, 0.3)",
+      }
+    },
+  },
+  plugins: [],
+}

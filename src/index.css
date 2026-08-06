@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background: radial-gradient(circle at 50% 0%, #163654 0%, #001526 70%);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  color: #cfe5ff;
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: rgba(8, 28, 45, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(150, 220, 255, 0.12);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+.glass-panel-accent {
+  background: rgba(11, 57, 84, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(80, 214, 249, 0.25);
+  box-shadow: 0 0 20px rgba(80, 214, 249, 0.15);
+}
+
+.glass-card {
+  background: rgba(9, 33, 52, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(150, 220, 255, 0.08);
+}
+
+.glass-input {
+  background: rgba(5, 29, 48, 0.8);
+  border: 1px solid rgba(140, 145, 152, 0.3);
+  color: #ffffff;
+  transition: all 0.2s ease-in-out;
+}
+
+.glass-input:focus {
+  outline: none;
+  border-color: #50d6f9;
+  box-shadow: 0 0 12px rgba(80, 214, 249, 0.3);
+}
+
+/* Leaflet Custom Overrides for Dark Bathymetric Theme */
+.leaflet-container {
+  background: #031b2e !important;
+  font-family: 'Inter', sans-serif !important;
+  border-radius: 12px;
+}
+
+.leaflet-popup-content-wrapper {
+  background: rgba(8, 28, 45, 0.95) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(80, 214, 249, 0.3) !important;
+  color: #cfe5ff !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5) !important;
+}
+
+.leaflet-popup-tip {
+  background: rgba(8, 28, 45, 0.95) !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 21, 38, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(80, 214, 249, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(80, 214, 249, 0.6);
+}
+
+/* Pulse Glow Keyframes */
+@keyframes pulse-cyan {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(80, 214, 249, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(80, 214, 249, 0.6);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-cyan 3s infinite ease-in-out;
+}
