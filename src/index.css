@@ -4,45 +4,87 @@
 
 :root {
   color-scheme: dark;
+  --bg-primary: #001526;
+  --bg-secondary: #081c2d;
+  --bg-tertiary: #163654;
+  --text-primary: #cfe5ff;
+  --text-secondary: #9BB7C9;
+  --text-muted: #6b86a1;
+  --surface-strong: #092134;
+  --surface-soft: #0b3954;
+  --panel-bg: rgba(8, 28, 45, 0.85);
+  --panel-bg-strong: rgba(9, 33, 52, 0.8);
+  --panel-border: rgba(150, 220, 255, 0.12);
+  --accent: #50d6f9;
+  --accent-strong: #78d1ff;
+  --shadow-color: rgba(0, 0, 0, 0.35);
+  --input-bg: rgba(5, 29, 48, 0.8);
+  --input-border: rgba(140, 145, 152, 0.3);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg-primary: #f3faff;
+  --bg-secondary: #eaf6ff;
+  --bg-tertiary: #d7ecff;
+  --text-primary: #000000;
+  --text-secondary: #334155;
+  --text-muted: #475569;
+  --surface-strong: #ffffff;
+  --surface-soft: #dcefff;
+  --panel-bg: rgba(255, 255, 255, 0.88);
+  --panel-bg-strong: rgba(248, 252, 255, 0.95);
+  --panel-border: rgba(15, 37, 54, 0.12);
+  --accent: #0b6ea8;
+  --accent-strong: #3f91c8;
+  --shadow-color: rgba(15, 37, 54, 0.12);
+  --input-bg: rgba(255, 255, 255, 0.9);
+  --input-border: rgba(15, 37, 54, 0.16);
+}
+
+:root[data-theme='light'] body,
+:root[data-theme='light'] body * {
+  color: var(--text-primary) !important;
 }
 
 body {
-  background: radial-gradient(circle at 50% 0%, #163654 0%, #001526 70%);
+  background: radial-gradient(circle at 50% 0%, var(--bg-tertiary) 0%, var(--bg-primary) 70%);
   min-height: 100vh;
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
-  color: #cfe5ff;
+  color: var(--text-primary);
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 /* Glassmorphism Utilities */
 .glass-panel {
-  background: rgba(8, 28, 45, 0.85);
+  background: var(--panel-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(150, 220, 255, 0.12);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--panel-border);
+  box-shadow: 0 8px 32px 0 var(--shadow-color);
 }
 
 .glass-panel-accent {
-  background: rgba(11, 57, 84, 0.6);
+  background: var(--panel-bg-strong);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(80, 214, 249, 0.25);
-  box-shadow: 0 0 20px rgba(80, 214, 249, 0.15);
+  border: 1px solid var(--panel-border);
+  box-shadow: 0 0 20px var(--shadow-color);
 }
 
 .glass-card {
-  background: rgba(9, 33, 52, 0.75);
+  background: var(--panel-bg-strong);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(150, 220, 255, 0.08);
+  border: 1px solid var(--panel-border);
 }
 
 .glass-input {
-  background: rgba(5, 29, 48, 0.8);
-  border: 1px solid rgba(140, 145, 152, 0.3);
-  color: #ffffff;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-primary);
   transition: all 0.2s ease-in-out;
 }
 
@@ -56,7 +98,7 @@ body {
 .leaflet-container {
   background: #031b2e !important;
   font-family: 'Inter', sans-serif !important;
-  border-radius: 12px;
+  border-radius: 12px !important;
 }
 
 .leaflet-popup-content-wrapper {

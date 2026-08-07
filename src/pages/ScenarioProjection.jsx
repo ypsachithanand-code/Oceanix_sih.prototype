@@ -154,8 +154,8 @@ export default function ScenarioProjection() {
       {/* Projection Graph */}
       <div className="glass-panel p-5 rounded-3xl border border-[#162c3f] space-y-4">
         <div className="flex items-center justify-between">
-          <h3 className="font-bold text-white text-base">20-Year Projected Marine Health & Risk Trajectory</h3>
-          <span className="text-xs font-mono text-[#50d6f9] bg-[#0b3954] px-3 py-1 rounded-full border border-[#50d6f9]/30">
+          <h3 className="font-bold text-[var(--text-primary)] text-base">20-Year Projected Marine Health & Risk Trajectory</h3>
+          <span className="text-xs font-mono px-3 py-1 rounded-full border" style={{ backgroundColor: 'var(--accent)', borderColor: 'rgba(11, 197, 234, 0.3)', color: '#ffffff' }}>
             Parametric Model Active
           </span>
         </div>
@@ -166,7 +166,7 @@ export default function ScenarioProjection() {
               <CartesianGrid strokeDasharray="3 3" stroke="#162c3f" />
               <XAxis dataKey="year" stroke="#9BB7C9" tick={{ fontSize: 12 }} />
               <YAxis stroke="#9BB7C9" tick={{ fontSize: 12 }} />
-              <Tooltip contentStyle={{ backgroundColor: '#081c2d', borderColor: '#50d6f9', borderRadius: '12px', color: '#cfe5ff' }} />
+              <Tooltip contentStyle={{ backgroundColor: 'var(--panel-bg-strong)', borderColor: 'var(--accent)', borderRadius: '12px', color: 'var(--text-primary)' }} />
               <Legend />
               <Line type="monotone" dataKey="ProjectedHealth" name="Marine Health Index" stroke="#50d6f9" strokeWidth={3} dot={{ r: 4 }} />
               <Line type="monotone" dataKey="BleachingRiskPct" name="Bleaching Risk (%)" stroke="#ffb4ab" strokeWidth={2} strokeDasharray="5 5" />
