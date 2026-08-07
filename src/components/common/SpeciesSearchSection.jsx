@@ -72,7 +72,7 @@ export default function SpeciesSearchSection() {
         </div>
         <div className="inline-flex items-center gap-2 rounded-full border border-[#50d6f9]/30 bg-[#0b3954] px-3 py-1 text-[10px] uppercase tracking-[0.24em] text-[#78d1ff]">
           <Sparkles className="h-3.5 w-3.5" />
-          Frontend Demo
+          Species Explorer
         </div>
       </div>
 

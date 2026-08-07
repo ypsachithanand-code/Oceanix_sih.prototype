@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Camera, RotateCcw, Sparkles, ScanLine } from 'lucide-react';
 
-const demoSpeciesBank = [
+const speciesBank = [
   {
     name: 'Green Sea Turtle',
     family: 'Cheloniidae',
@@ -34,7 +34,7 @@ const demoSpeciesBank = [
   },
 ];
 
-const getDemoSpecies = (file) => {
+const getSpeciesResult = (file) => {
   if (!file) return null;
 
   const seed = Array.from(`${file.name}${file.size}${file.lastModified}`).reduce(
@@ -42,8 +42,8 @@ const getDemoSpecies = (file) => {
     0,
   );
 
-  const index = seed % demoSpeciesBank.length;
-  const match = demoSpeciesBank[index];
+  const index = seed % speciesBank.length;
+  const match = speciesBank[index];
   const confidence = `${88 + (seed % 8)}%`;
 
   return {
@@ -70,14 +70,14 @@ export default function SpeciesDetectionDemo() {
       setIsProcessing(true);
 
       window.setTimeout(() => {
-        setDetection(getDemoSpecies(file));
+        setDetection(getSpeciesResult(file));
         setIsProcessing(false);
       }, 700);
     };
     reader.readAsDataURL(file);
   };
 
-  const resetDemo = () => {
+  const resetSelection = () => {
     setImagePreview('');
     setDetection(null);
     setIsProcessing(false);
@@ -90,14 +90,14 @@ export default function SpeciesDetectionDemo() {
     <div className="glass-panel p-5 rounded-3xl border border-[#162c3f] space-y-4">
       <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
         <div>
-          <h3 className="text-base font-semibold text-white">Species Diversity Camera Demo</h3>
+          <h3 className="text-base font-semibold text-white">Species Diversity Camera</h3>
           <p className="text-xs text-[#9BB7C9] mt-1">
-            Upload an image to preview a frontend-only species identification demo for marine biodiversity.
+            Upload an image to preview a species identification experience for marine biodiversity.
           </p>
         </div>
         <div className="inline-flex items-center gap-2 rounded-full border border-[#50d6f9]/30 bg-[#0b3954] px-3 py-1 text-[10px] uppercase tracking-[0.24em] text-[#78d1ff]">
           <Sparkles className="h-3.5 w-3.5" />
-          Frontend Demo Only
+          Image Analysis
         </div>
       </div>
 
@@ -109,7 +109,7 @@ export default function SpeciesDetectionDemo() {
               <span>Capture or upload a specimen</span>
             </div>
             <button
-              onClick={resetDemo}
+              onClick={resetSelection}
               className="flex items-center gap-1 rounded-lg border border-[#50d6f9]/25 bg-[#092134] px-2.5 py-1.5 text-[11px] font-medium text-[#78d1ff] transition hover:bg-[#10364c]"
             >
               <RotateCcw className="h-3.5 w-3.5" />
@@ -137,7 +137,7 @@ export default function SpeciesDetectionDemo() {
                 <div>
                   <p className="text-sm font-semibold text-white">Tap to choose or capture an image</p>
                   <p className="mt-1 text-xs text-[#9BB7C9]">
-                    The UI will simulate a species identification result for the demo experience.
+                    The UI will simulate a species identification result for the experience.
                   </p>
                 </div>
               </div>
@@ -146,7 +146,7 @@ export default function SpeciesDetectionDemo() {
 
           <div className="mt-3 flex items-center justify-between text-[11px] text-[#9BB7C9]">
             <span>Supports phones and desktops</span>
-            <span>Image-based demo only</span>
+            <span>Image-based preview</span>
           </div>
         </div>
 
@@ -189,7 +189,7 @@ export default function SpeciesDetectionDemo() {
                 </div>
               </div>
               <div className="rounded-2xl border border-[#162c3f] bg-[#08131d] p-3 text-xs text-[#9BB7C9]">
-                This view is intentionally simulated for the frontend demo experience and does not run real image recognition.
+                This view is intentionally simulated to showcase the interface and does not run real image recognition.
               </div>
             </div>
           ) : (
