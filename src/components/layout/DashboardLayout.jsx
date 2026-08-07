@@ -125,16 +125,6 @@ export default function DashboardLayout({ children }) {
               })}
             </div>
 
-            {/* Sidebar Foot Card */}
-            <div className="p-3 bg-[#051d30]/80 rounded-2xl border border-[#162c3f] text-xs">
-              <div className="flex items-center space-x-2 mb-1">
-                <span className="w-2 h-2 rounded-full bg-[#50d6f9]"></span>
-                <span className="font-semibold text-white">Mock Engine</span>
-              </div>
-              <p className="text-[11px] text-[#9BB7C9] leading-tight">
-                Frontend-only mode. All telemetry loaded locally.
-              </p>
-            </div>
           </div>
         </aside>
 
