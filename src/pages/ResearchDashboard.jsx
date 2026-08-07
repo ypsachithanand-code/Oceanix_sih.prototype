@@ -6,6 +6,9 @@ import {
   MOCK_TREND_DATA 
 } from '../mock/marineData';
 import MarineMap from '../components/map/MarineMap';
+import SpeciesDetectionDemo from '../components/common/SpeciesDetectionDemo';
+import SpeciesSearchSection from '../components/common/SpeciesSearchSection';
+import DailySpeciesCards from '../components/common/DailySpeciesCards';
 import { 
   Filter, 
   Download, 
@@ -215,6 +218,15 @@ export default function ResearchDashboard() {
           height="480px" 
         />
       </div>
+
+      {/* Species Diversity Demo */}
+      <SpeciesDetectionDemo />
+
+      {/* Species Search Explorer */}
+      <SpeciesSearchSection />
+
+      {/* Daily rotating species cards */}
+      <DailySpeciesCards />
 
       {/* Trend Chart Below Map */}
       <div className="glass-panel p-5 rounded-3xl border border-[#162c3f] space-y-4">
