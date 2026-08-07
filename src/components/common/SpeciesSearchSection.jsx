@@ -62,73 +62,73 @@ export default function SpeciesSearchSection() {
   }, [query, selectedCategory]);
 
   return (
-    <div className="glass-panel rounded-3xl border border-[#162c3f] p-5 space-y-4">
+    <div className="glass-panel rounded-3xl p-5 space-y-4" style={{ borderColor: 'var(--panel-border)', backgroundColor: 'var(--surface-strong)' }}>
       <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <div>
-          <h3 className="text-base font-semibold text-white">Coral Species & Microorganism Explorer</h3>
-          <p className="mt-1 text-xs text-[#9BB7C9]">
+          <h3 className="text-base font-semibold" style={{ color: 'var(--text-primary)' }}>Coral Species & Microorganism Explorer</h3>
+          <p className="mt-1 text-xs" style={{ color: 'var(--text-secondary)' }}>
             Search for coral species and microorganisms commonly found in reef ecosystems.
           </p>
         </div>
-        <div className="inline-flex items-center gap-2 rounded-full border border-[#50d6f9]/30 bg-[#0b3954] px-3 py-1 text-[10px] uppercase tracking-[0.24em] text-[#78d1ff]">
+        <div className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-[10px] uppercase tracking-[0.24em]" style={{ borderColor: 'var(--panel-border)', backgroundColor: 'var(--surface-soft)', color: 'var(--accent)' }}>
           <Sparkles className="h-3.5 w-3.5" />
           Species Explorer
         </div>
       </div>
 
       <div className="flex flex-col gap-3 lg:flex-row lg:items-center">
-        <label className="flex flex-1 items-center gap-2 rounded-2xl border border-[#162c3f] bg-[#071722] px-3 py-2.5">
-          <Search className="h-4 w-4 text-[#50d6f9]" />
+        <label className="flex flex-1 items-center gap-2 rounded-2xl border px-3 py-2.5" style={{ borderColor: 'var(--panel-border)', backgroundColor: 'var(--surface-soft)' }}>
+          <Search className="h-4 w-4 text-[var(--accent)]" />
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search species or microorganism"
-            className="w-full bg-transparent text-sm text-white outline-none placeholder:text-[#6b86a1]"
+            className="w-full bg-transparent text-sm outline-none" style={{ color: 'var(--text-primary)' }}
           />
         </label>
 
         <select
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
-          className="rounded-2xl border border-[#162c3f] bg-[#071722] px-3 py-2.5 text-sm text-white outline-none"
+          className="rounded-2xl border px-3 py-2.5 text-sm outline-none" style={{ borderColor: 'var(--panel-border)', backgroundColor: 'var(--surface-soft)', color: 'var(--text-primary)' }}
         >
-          <option value="All" className="bg-[#071722]">All entries</option>
-          <option value="Species" className="bg-[#071722]">Species</option>
-          <option value="Microorganism" className="bg-[#071722]">Microorganisms</option>
+          <option value="All" className="bg-[var(--surface-strong)]">All entries</option>
+          <option value="Species" className="bg-[var(--surface-strong)]">Species</option>
+          <option value="Microorganism" className="bg-[var(--surface-strong)]">Microorganisms</option>
         </select>
       </div>
 
-      <div className="flex items-center justify-between text-xs text-[#9BB7C9]">
+      <div className="flex items-center justify-between text-xs" style={{ color: 'var(--text-secondary)' }}>
         <span>{filteredResults.length} visible entries</span>
         <span>Searches coral biodiversity and reef-associated microbes</span>
       </div>
 
       <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
         {filteredResults.map((item) => (
-          <div key={item.name} className="rounded-2xl border border-[#162c3f] bg-[#071722] p-4">
+          <div key={item.name} className="rounded-2xl border p-4" style={{ borderColor: 'var(--panel-border)', backgroundColor: 'var(--surface-strong)' }}>
             <div className="flex items-center justify-between gap-2">
               <div className="flex items-center gap-2">
                 {item.category === 'Microorganism' ? (
-                  <Microscope className="h-4 w-4 text-[#78d1ff]" />
+                  <Microscope className="h-4 w-4 text-[var(--accent-strong)]" />
                 ) : (
-                  <Fish className="h-4 w-4 text-[#50d6f9]" />
+                  <Fish className="h-4 w-4 text-[var(--accent)]" />
                 )}
-                <h4 className="text-sm font-semibold text-white">{item.name}</h4>
+                <h4 className="text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>{item.name}</h4>
               </div>
-              <span className="rounded-full border border-[#50d6f9]/20 bg-[#0b3954] px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-[#78d1ff]">
+              <span className="rounded-full border px-2.5 py-1 text-[10px] uppercase tracking-[0.2em]" style={{ borderColor: 'var(--panel-border)', backgroundColor: 'var(--surface-soft)', color: 'var(--accent)' }}>
                 {item.category}
               </span>
             </div>
 
-            <p className="mt-3 text-xs text-[#9BB7C9]">{item.type}</p>
-            <p className="mt-2 text-sm text-[#cfe5ff]">{item.role}</p>
-            <p className="mt-2 text-xs text-[#78d1ff]">Location: {item.location}</p>
+            <p className="mt-3 text-xs" style={{ color: 'var(--text-secondary)' }}>{item.type}</p>
+            <p className="mt-2 text-sm" style={{ color: 'var(--text-primary)' }}>{item.role}</p>
+            <p className="mt-2 text-xs" style={{ color: 'var(--accent)' }}>Location: {item.location}</p>
           </div>
         ))}
       </div>
 
       {filteredResults.length === 0 && (
-        <div className="rounded-2xl border border-dashed border-[#2d4d67] bg-[#08131d] p-4 text-sm text-[#9BB7C9]">
+        <div className="rounded-2xl border border-dashed p-4 text-sm" style={{ borderColor: 'var(--panel-border)', backgroundColor: 'var(--panel-bg-strong)', color: 'var(--text-secondary)' }}>
           No matching coral species or microorganisms found. Try another keyword.
         </div>
       )}

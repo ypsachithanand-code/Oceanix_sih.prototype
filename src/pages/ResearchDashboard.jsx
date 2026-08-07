@@ -89,13 +89,13 @@ export default function ResearchDashboard() {
     <div className="space-y-6 pb-12">
       
       {/* Top Banner & Control Toolbar */}
-      <div className="glass-panel p-5 rounded-3xl flex flex-col lg:flex-row lg:items-center justify-between gap-4 border border-[#162c3f]">
+      <div className="glass-panel p-5 rounded-3xl flex flex-col lg:flex-row lg:items-center justify-between gap-4 border" style={{ borderColor: 'var(--panel-border)', backgroundColor: 'var(--surface-strong)' }}>
         <div>
-          <h2 className="text-xl md:text-2xl font-bold text-white flex items-center space-x-2">
+          <h2 className="text-xl md:text-2xl font-bold text-[var(--text-primary)] flex items-center space-x-2">
             <span>Research & Telemetry Dashboard</span>
-            <span className="w-2.5 h-2.5 rounded-full bg-[#50d6f9] animate-pulse"></span>
+            <span className="w-2.5 h-2.5 rounded-full bg-[var(--accent)] animate-pulse"></span>
           </h2>
-          <p className="text-xs text-[#9BB7C9] mt-0.5">
+          <p className="text-xs text-[var(--text-secondary)] mt-0.5">
             Real-time bathymetric sensor monitoring & species observation filter engine
           </p>
         </div>
@@ -103,52 +103,56 @@ export default function ResearchDashboard() {
         {/* Filter Controls */}
         <div className="flex flex-wrap items-center gap-3">
           {/* Species Dropdown */}
-          <div className="flex items-center space-x-2 bg-[#092134] px-3 py-2 rounded-xl border border-[#162c3f]">
-            <Filter className="w-4 h-4 text-[#50d6f9]" />
+          <div className="flex items-center space-x-2 px-3 py-2 rounded-xl border" style={{ borderColor: 'var(--panel-border)', backgroundColor: 'var(--surface-soft)' }}>
+            <Filter className="w-4 h-4 text-[var(--accent)]" />
             <select
               value={selectedSpecies}
               onChange={(e) => setSelectedSpecies(e.target.value)}
-              className="bg-transparent text-xs font-medium text-white focus:outline-none cursor-pointer"
+              className="bg-transparent text-xs font-medium text-[var(--text-primary)] focus:outline-none cursor-pointer"
+              style={{ color: 'var(--text-primary)' }}
             >
               {speciesOptions.map(sp => (
-                <option key={sp} value={sp} className="bg-[#092134] text-white">{sp}</option>
+                <option key={sp} value={sp} className="bg-[var(--surface-strong)] text-[var(--text-primary)]">{sp}</option>
               ))}
             </select>
           </div>
 
           {/* Region Dropdown */}
-          <div className="flex items-center space-x-2 bg-[#092134] px-3 py-2 rounded-xl border border-[#162c3f]">
-            <Layers className="w-4 h-4 text-[#50d6f9]" />
+          <div className="flex items-center space-x-2 px-3 py-2 rounded-xl border" style={{ borderColor: 'var(--panel-border)', backgroundColor: 'var(--surface-soft)' }}>
+            <Layers className="w-4 h-4 text-[var(--accent)]" />
             <select
               value={selectedRegion}
               onChange={(e) => setSelectedRegion(e.target.value)}
-              className="bg-transparent text-xs font-medium text-white focus:outline-none cursor-pointer"
+              className="bg-transparent text-xs font-medium text-[var(--text-primary)] focus:outline-none cursor-pointer"
+              style={{ color: 'var(--text-primary)' }}
             >
               {regionOptions.map(reg => (
-                <option key={reg} value={reg} className="bg-[#092134] text-white">{reg}</option>
+                <option key={reg} value={reg} className="bg-[var(--surface-strong)] text-[var(--text-primary)]">{reg}</option>
               ))}
             </select>
           </div>
 
           {/* Date Range Dropdown */}
-          <div className="flex items-center space-x-2 bg-[#092134] px-3 py-2 rounded-xl border border-[#162c3f]">
-            <Calendar className="w-4 h-4 text-[#50d6f9]" />
+          <div className="flex items-center space-x-2 px-3 py-2 rounded-xl border" style={{ borderColor: 'var(--panel-border)', backgroundColor: 'var(--surface-soft)' }}>
+            <Calendar className="w-4 h-4 text-[var(--accent)]" />
             <select
               value={selectedDateRange}
               onChange={(e) => setSelectedDateRange(e.target.value)}
-              className="bg-transparent text-xs font-medium text-white focus:outline-none cursor-pointer"
+              className="bg-transparent text-xs font-medium text-[var(--text-primary)] focus:outline-none cursor-pointer"
+              style={{ color: 'var(--text-primary)' }}
             >
-              <option value="24h" className="bg-[#092134]">Last 24 Hours</option>
-              <option value="7d" className="bg-[#092134]">Last 7 Days</option>
-              <option value="30d" className="bg-[#092134]">Last 30 Days</option>
-              <option value="all" className="bg-[#092134]">All Time</option>
+              <option value="24h" className="bg-[var(--surface-strong)]">Last 24 Hours</option>
+              <option value="7d" className="bg-[var(--surface-strong)]">Last 7 Days</option>
+              <option value="30d" className="bg-[var(--surface-strong)]">Last 30 Days</option>
+              <option value="all" className="bg-[var(--surface-strong)]">All Time</option>
             </select>
           </div>
 
           {/* Export CSV Button */}
           <button
             onClick={handleExportCSV}
-            className="flex items-center space-x-2 bg-[#0b3954] hover:bg-[#2d9bc9] text-[#50d6f9] hover:text-white px-4 py-2 rounded-xl border border-[#50d6f9]/40 text-xs font-semibold transition-all duration-200 shadow-md"
+            className="flex items-center space-x-2 px-4 py-2 rounded-xl border text-xs font-semibold transition-all duration-200 shadow-md"
+            style={{ backgroundColor: 'var(--accent)', color: '#001526', borderColor: 'transparent' }}
           >
             <Download className="w-4 h-4" />
             <span>Export CSV</span>
@@ -158,55 +162,55 @@ export default function ResearchDashboard() {
 
       {/* High-Level Metric Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="glass-panel p-4 rounded-2xl border border-[#162c3f] space-y-1">
-          <div className="flex items-center justify-between text-[#9BB7C9]">
+        <div className="glass-panel p-4 rounded-2xl border space-y-1" style={{ borderColor: 'var(--panel-border)', backgroundColor: 'var(--surface-strong)' }}>
+          <div className="flex items-center justify-between" style={{ color: 'var(--text-secondary)' }}>
             <span className="text-xs font-mono uppercase">Filtered Observations</span>
-            <Activity className="w-4 h-4 text-[#50d6f9]" />
+            <Activity className="w-4 h-4 text-[var(--accent)]" />
           </div>
-          <div className="text-2xl font-bold font-mono text-white">{filteredSpecies.length}</div>
-          <div className="text-[10px] text-emerald-400 font-mono flex items-center space-x-1">
+          <div className="text-2xl font-bold font-mono" style={{ color: 'var(--text-primary)' }}>{filteredSpecies.length}</div>
+          <div className="text-[10px] font-mono flex items-center space-x-1" style={{ color: '#0f766e' }}>
             <CheckCircle2 className="w-3 h-3" />
             <span>Live Telemetry Stream</span>
           </div>
         </div>
 
-        <div className="glass-panel p-4 rounded-2xl border border-[#162c3f] space-y-1">
-          <div className="flex items-center justify-between text-[#9BB7C9]">
+        <div className="glass-panel p-4 rounded-2xl border space-y-1" style={{ borderColor: 'var(--panel-border)', backgroundColor: 'var(--surface-strong)' }}>
+          <div className="flex items-center justify-between" style={{ color: 'var(--text-secondary)' }}>
             <span className="text-xs font-mono uppercase">Active Anomalies</span>
-            <AlertTriangle className="w-4 h-4 text-red-400" />
+            <AlertTriangle className="w-4 h-4 text-red-500" />
           </div>
-          <div className="text-2xl font-bold font-mono text-white">{filteredAnomalies.length}</div>
-          <div className="text-[10px] text-red-400 font-mono">
+          <div className="text-2xl font-bold font-mono" style={{ color: 'var(--text-primary)' }}>{filteredAnomalies.length}</div>
+          <div className="text-[10px] font-mono" style={{ color: '#b91c1c' }}>
             {filteredAnomalies.length > 0 ? 'Action Required' : 'Nominal Thresholds'}
           </div>
         </div>
 
-        <div className="glass-panel p-4 rounded-2xl border border-[#162c3f] space-y-1">
-          <div className="flex items-center justify-between text-[#9BB7C9]">
+        <div className="glass-panel p-4 rounded-2xl border space-y-1" style={{ borderColor: 'var(--panel-border)', backgroundColor: 'var(--surface-strong)' }}>
+          <div className="flex items-center justify-between" style={{ color: 'var(--text-secondary)' }}>
             <span className="text-xs font-mono uppercase">Avg Sea Surface Temp</span>
-            <Thermometer className="w-4 h-4 text-amber-400" />
+            <Thermometer className="w-4 h-4 text-amber-500" />
           </div>
-          <div className="text-2xl font-bold font-mono text-white">28.9°C</div>
-          <div className="text-[10px] text-amber-300 font-mono">+1.2°C anomaly delta</div>
+          <div className="text-2xl font-bold font-mono" style={{ color: 'var(--text-primary)' }}>28.9°C</div>
+          <div className="text-[10px] font-mono" style={{ color: '#b45309' }}>+1.2°C anomaly delta</div>
         </div>
 
-        <div className="glass-panel p-4 rounded-2xl border border-[#162c3f] space-y-1">
-          <div className="flex items-center justify-between text-[#9BB7C9]">
+        <div className="glass-panel p-4 rounded-2xl border space-y-1" style={{ borderColor: 'var(--panel-border)', backgroundColor: 'var(--surface-strong)' }}>
+          <div className="flex items-center justify-between" style={{ color: 'var(--text-secondary)' }}>
             <span className="text-xs font-mono uppercase">Marine Health Index</span>
-            <TrendingUp className="w-4 h-4 text-[#78d1ff]" />
+            <TrendingUp className="w-4 h-4 text-[var(--accent-strong)]" />
           </div>
-          <div className="text-2xl font-bold font-mono text-[#50d6f9]">78 / 100</div>
-          <div className="text-[10px] text-[#78d1ff] font-mono">Moderate Ecological Status</div>
+          <div className="text-2xl font-bold font-mono text-[var(--accent)]">78 / 100</div>
+          <div className="text-[10px] font-mono text-[var(--accent-strong)]">Moderate Ecological Status</div>
         </div>
       </div>
 
       {/* Interactive Map View */}
       <div className="space-y-2">
         <div className="flex items-center justify-between px-1">
-          <h3 className="text-sm font-semibold text-[#cfe5ff] font-mono uppercase tracking-wider">
+          <h3 className="text-sm font-semibold font-mono uppercase tracking-wider" style={{ color: 'var(--text-primary)' }}>
             Interactive Marine Telemetry Map
           </h3>
-          <span className="text-xs text-[#9BB7C9]">
+          <span className="text-xs" style={{ color: 'var(--text-secondary)' }}>
             Click markers to inspect environmental parameters
           </span>
         </div>
@@ -229,20 +233,20 @@ export default function ResearchDashboard() {
       <DailySpeciesCards />
 
       {/* Trend Chart Below Map */}
-      <div className="glass-panel p-5 rounded-3xl border border-[#162c3f] space-y-4">
+      <div className="glass-panel p-5 rounded-3xl border space-y-4" style={{ borderColor: 'var(--panel-border)', backgroundColor: 'var(--surface-strong)' }}>
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="font-semibold text-white text-base">Historical Marine Telemetry & Temperature Trends</h3>
-            <p className="text-xs text-[#9BB7C9]">Sea Surface Temperature (°C) vs Coral Reef Health Index over time</p>
+            <h3 className="font-semibold text-base" style={{ color: 'var(--text-primary)' }}>Historical Marine Telemetry & Temperature Trends</h3>
+            <p className="text-xs" style={{ color: 'var(--text-secondary)' }}>Sea Surface Temperature (°C) vs Coral Reef Health Index over time</p>
           </div>
-          <div className="flex items-center space-x-4 text-xs font-mono">
+          <div className="flex items-center space-x-4 text-xs font-mono" style={{ color: 'var(--text-secondary)' }}>
             <div className="flex items-center space-x-1.5">
-              <span className="w-3 h-3 rounded bg-[#50d6f9]"></span>
-              <span className="text-[#cfe5ff]">Coral Health Index</span>
+              <span className="w-3 h-3 rounded bg-[var(--accent)]"></span>
+              <span>Coral Health Index</span>
             </div>
             <div className="flex items-center space-x-1.5">
-              <span className="w-3 h-3 rounded bg-[#ffb4ab]"></span>
-              <span className="text-[#cfe5ff]">SST (°C)</span>
+              <span className="w-3 h-3 rounded bg-[#fb7185]"></span>
+              <span>SST (°C)</span>
             </div>
           </div>
         </div>
