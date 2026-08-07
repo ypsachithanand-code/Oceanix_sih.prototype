@@ -76,12 +76,12 @@ export default function DailySpeciesCards() {
         <div>
           <h3 className="text-base font-semibold text-white">Daily Species Feed</h3>
           <p className="mt-1 text-xs text-[#9BB7C9]">
-            A new random marine species or microorganism card appears each day in this demo feed.
+            A new random marine species or microorganism card appears each day in this live feed.
           </p>
         </div>
         <div className="inline-flex items-center gap-2 rounded-full border border-[#50d6f9]/30 bg-[#0b3954] px-3 py-1 text-[10px] uppercase tracking-[0.24em] text-[#78d1ff]">
           <CalendarDays className="h-3.5 w-3.5" />
-          Daily Rotation
+          Daily Insights
         </div>
       </div>
 
